@@ -5,4 +5,4 @@ plugins:
 title: Power Outages Visualization
 description: "An interactive visualization of power outages across the US."
 baseurl: "" 
-url: "https://keemarice.github.io/PowerOutages"
+url: "https://keemarice.github.io/PowerOutages" #push
