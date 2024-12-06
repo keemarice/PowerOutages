@@ -14,17 +14,23 @@
         fetch("outage_map.json")
             .then(response => response.json())
             .then(data => {
-                // Render the map with frames for interactivity
-                Plotly.newPlot("map", data.data, data.layout).then(() => {
-                    // Add frames for the slider animation
-                    Plotly.addFrames("map", data.frames);
+                // Render the map with frames and layout
+                Plotly.newPlot("map", data.data, data.layout);
 
-                    // Initialize slider and play button
-                    Plotly.animate("map", {
+                // Add frames for the slider animation
+                Plotly.addFrames("map", data.frames);
+
+                // Add play/pause buttons for interactivity
+                const playButton = document.createElement("button");
+                playButton.innerText = "Play";
+                document.body.insertBefore(playButton, document.getElementById("map"));
+                playButton.onclick = () => {
+                    Plotly.animate("map", null, {
                         frame: { duration: 1000, redraw: true },
-                        mode: "immediate",
+                        transition: { duration: 300 },
+                        mode: "next",
                     });
-                });
+                };
             })
             .catch(error => console.error("Error loading the map data:", error));
     </script>
