@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Outages Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Power Outages Visualization</h1>
+    <div id="map" style="width: 100%; height: 600px;"></div>
+    <script>
+        // Your interactive map code here
+        const data = JSON.parse('outage_map.json');  // Add your map data JSON
+        const layout = { title: "Longest Power Outages in the US", geo: { scope: "usa" } };
+
+        Plotly.newPlot("map", data, layout);
+    </script>
+</body>
+</html>
