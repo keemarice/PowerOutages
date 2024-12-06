@@ -10,11 +10,13 @@
     <h1>Power Outages Visualization</h1>
     <div id="map" style="width: 100%; height: 600px;"></div>
     <script>
-        // Your interactive map code here
-        const data = JSON.parse('outage_map.json');  // Add your map data JSON
-        const layout = { title: "Longest Power Outages in the US", geo: { scope: "usa" } };
-
-        Plotly.newPlot("map", data, layout);
+        // Fetch the JSON file and render the map
+        fetch("outage_map.json")
+            .then(response => response.json())
+            .then(data => {
+                Plotly.newPlot("map", data.data, data.layout);
+            })
+            .catch(error => console.error("Error loading the map data:", error));
     </script>
 </body>
 </html>
