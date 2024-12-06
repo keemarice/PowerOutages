@@ -15,22 +15,19 @@
             .then(response => response.json())
             .then(data => {
                 // Render the map with frames and layout
-                Plotly.newPlot("map", data.data, data.layout);
+                Plotly.newPlot("map", data.data, data.layout)
+                    .then(() => {
+                        // Add frames for the animation
+                        Plotly.addFrames("map", data.frames);
 
-                // Add frames for the slider animation
-                Plotly.addFrames("map", data.frames);
-
-                // Add play/pause buttons for interactivity
-                const playButton = document.createElement("button");
-                playButton.innerText = "Play";
-                document.body.insertBefore(playButton, document.getElementById("map"));
-                playButton.onclick = () => {
-                    Plotly.animate("map", null, {
-                        frame: { duration: 1000, redraw: true },
-                        transition: { duration: 300 },
-                        mode: "next",
+                        // Enable automatic animation on slider interaction
+                        document.getElementById("map").on("plotly_sliderchange", function(event) {
+                            Plotly.animate("map", {
+                                transition: { duration: 500, easing: "linear" },
+                                frame: { duration: 500, redraw: true },
+                            });
+                        });
                     });
-                };
             })
             .catch(error => console.error("Error loading the map data:", error));
     </script>
