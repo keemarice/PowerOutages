@@ -66,6 +66,28 @@ In the beginning, we were given a .xlsx file that we coverted into a .csv file. 
   - **YEAR**, **OUTAGE.DURATION**, **DEMAND.LOSS.MW**, and **CUSTOMERS.AFFECTED** were converted to `float` or `int` for numerical analysis.
 ---
 
+
+## Univariate Analysis
+### Power Outages per Year (2000 - 2016)
+- A histogram was created to visualize the frequency of power outages from 2000 to 2016.
+- **Visualization Details**:
+  - X-axis: Year (2000-2016)
+  - Y-axis: Number of outages
+  - Bin size: 17 (one bin per year)
+
+```python
+fig = px.histogram(outageClean, x='YEAR', nbins=17)
+fig.update_layout(title="Power Outages per Year (2000 - 2016)", xaxis_title="Year", yaxis_title="Number of Outages")
+fig.update_layout(
+    xaxis=dict(
+        tickmode='linear',
+        tick0=2000,
+        dtick=1
+    )
+)
+fig.show() 
+```
+
 <iframe
   src="assets/outage_map.html"
   width="800"
