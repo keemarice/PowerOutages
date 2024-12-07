@@ -1,5 +1,3 @@
-# Power Outage Restoration Length
-by Karsin Dass (kdass@umich.edu) and Cole Doyle (nicdoyle@umich.edu)
 
 ---
 
