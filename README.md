@@ -39,9 +39,9 @@ In the beginning, we were given a .xlsx file that we coverted into a .csv file. 
 
 ### 1. **Loading the Data**
 - The dataset `outage.csv` was loaded using `pandas.read_csv()` with the following configurations:
-  - **`usecols`**: Selected columns ranging from index 2 to 55.
+  - **`usecols`**: Selected columns ranging from index 2 to 55 because these were the only relevant columns to us.
   - **`header`**: The header row was specified at index 0.
-  - **`skiprows`**: Skipped the first 5 rows of the file to remove metadata.
+  - **`skiprows`**: Skipped the first 5 rows of the file to remove description of dataset.
 
 ### 2. **Column Selection**
 - From the loaded dataset, we selected the following subset of columns that are relevant for the analysis:
@@ -58,31 +58,12 @@ In the beginning, we were given a .xlsx file that we coverted into a .csv file. 
 - The first row of the selected columns was removed because it contained metadata instead of actual data.
 
 ### 4. **Handling Missing Values**
-- Missing values in critical columns like **YEAR** and **OUTAGE.DURATION** were dropped to ensure completeness.
-- For other columns, missing values were filled where applicable.
+- Missing values in critical columns like **YEAR** and **OUTAGE.DURATION** were dropped to ensure regression models were able to be run.
+- For other columns, missing values were imputed using the mean of the dataset if a numeric column or maked as "missing" for categorical.
 
 ### 5. **Data Type Conversion**
 - Columns were converted to appropriate numeric data types using `pd.to_numeric()`:
   - **YEAR**, **OUTAGE.DURATION**, **DEMAND.LOSS.MW**, and **CUSTOMERS.AFFECTED** were converted to `float` or `int` for numerical analysis.
-
----
-
-## Resulting Dataset
-The resulting cleaned dataset, stored in the `outageClean` DataFrame, includes the following columns:
-- **YEAR**
-- **U.S._STATE**
-- **POSTAL.CODE**
-- **NERC.REGION**
-- **CAUSE.CATEGORY**
-- **OUTAGE.DURATION**
-- **DEMAND.LOSS.MW**
-- **CUSTOMERS.AFFECTED**
-
-### Features of the Clean Dataset:
-- Contains only relevant data with missing values handled appropriately.
-- All numeric columns are ready for analysis and modeling.
-- Includes a clean and structured dataset for exploratory data analysis (EDA) and predictive modeling.
-
 ---
 
 <iframe
