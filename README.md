@@ -93,7 +93,30 @@ In the beginning, we were given a .xlsx file that we coverted into a .csv file. 
   frameborder="0"
 ></iframe>
 
+We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with a 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**  
+
 ## Final Model
+Given the high error of the simple linear regression we decided to experiment with other prediction techniques.  These techiniques include: multiple linear regression, lasso, ridge, and decision trees.  We will explore each model in this next section:
+
+### Multiple Linear Regression
+A baseline approach using all selected features. And the error decreased drastically to **4933.434**  We will see later that this model performed the best.  Marginally better than ridge and lasso regression. 
+
+### Lasso Regression
+Lasso regression added L1 regularization to our linear model, helping reduce the impact of less significant features by driving their coefficients to zero. We used `GridSearchCV` to tune the regularization parameter (`alpha`), testing multiple values to find the best fit.
+
+- **Root Mean Squared Error (RMSE)**: **4955.11**
+- **Most influential features**: `CAUSE.CATEGORY_fuel supply emergency`, `NERC.REGION_MRO`, and `U.S._STATE_Wisconsin`.
+
+### Ridge Regression
+Ridge regression used L2 regularization, penalizing large coefficients to prevent overfitting. Similar to Lasso, we tuned `alpha` using `GridSearchCV`.
+
+- **RMSE**: Slightly lower than Lasso, but still worse than the multiple linear regression: **4944.431**
+- **Most influential features**: Similar to Lasso, with some additional weight given to numeric features like `Year_Demand_Interaction`.
+
+### Decision Trees
+We explored non-linear relationships by fitting a Decision Tree Regressor. Hyperparameters such as `max_depth`, `min_samples_split`, and `min_samples_leaf` were optimized using `GridSearchCV`.
+- **RMSE**: The highest of all of the advanced models being: **5480.099**
+
 
 
 
