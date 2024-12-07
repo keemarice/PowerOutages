@@ -123,10 +123,10 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with a 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**  
+We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**  
 
 ## Final Model
-Given the high error of the simple linear regression we decided to experiment with other prediction techniques.  These techiniques include: multiple linear regression, lasso, ridge, and decision trees.  We will explore each model in this next section:
+Given the high error of the simple linear regression, we decided to experiment with other prediction techniques.  These techniques include multiple linear regression, lasso, ridge, and decision trees.  We will explore each model in this next section:
 
 ### Multiple Linear Regression
 A baseline approach using all selected features. And the error decreased drastically to **4933.434**  We will see later that this model performed the best.  Marginally better than ridge and lasso regression. 
