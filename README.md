@@ -117,6 +117,13 @@ Ridge regression used L2 regularization, penalizing large coefficients to preven
 We explored non-linear relationships by fitting a Decision Tree Regressor. Hyperparameters such as `max_depth`, `min_samples_split`, and `min_samples_leaf` were optimized using `GridSearchCV`.
 - **RMSE**: The highest of all of the advanced models being: **5480.099**
 
+<iframe
+  src="assets/decision_tree.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 
 
