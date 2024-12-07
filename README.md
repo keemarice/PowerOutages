@@ -111,6 +111,9 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
+### Interesting Aggregates
+
+|    |   YEAR |   OUTAGE.DURATION |\n|---:|-------:|------------------:|\n|  0 |   2000 |          2843.08  |\n|  1 |   2001 |          1272.07  |\n|  2 |   2002 |          4751     |\n|  3 |   2003 |          4652.43  |\n|  4 |   2004 |          4368.79  |\n|  5 |   2005 |          5288.94  |\n|  6 |   2006 |          3329.53  |\n|  7 |   2007 |          2336.67  |\n|  8 |   2008 |          4184.02  |\n|  9 |   2009 |          3660.52  |\n| 10 |   2010 |          2937.53  |\n| 11 |   2011 |          1801.61  |\n| 12 |   2012 |          1877.98  |\n| 13 |   2013 |          1369.16  |\n| 14 |   2014 |          3107.36  |\n| 15 |   2015 |           935.811 |\n| 16 |   2016 |          2225.55  |
 
 
 ## Framing a Prediction Problem
