@@ -21,17 +21,16 @@ The raw data set contains 1534 rows, where each records a different power outage
 | 'OUTAGE.DURATION'	 |       Duration of outage events (in minutes) |
 | 'DEMAND.LOSS.MW	' |       Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
 | 'CUSTOMERS.AFFECTED'   |       Number of customers affected by the power outage event |
-| 'MONTH' |       Indicates the month when the outage event occurred |
-
 
 The data can be accessed here: https://engineering.purdue.edu/LASCI/research-data/outages 
+
 In this project, we focus on the following question:
 
 **How long do power outages before power is restored?**
 
 These questions could give insight into improvements to infrastructure resilience in different states and electrical grids, and the improvement in technology or restoration time from 2000 to 2016. 
 
-
+---
 ## Data Cleaning and Exploratory Data Analysis 
 
 ### Cleaning
@@ -66,6 +65,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 - **YEAR**, **OUTAGE.DURATION**, **DEMAND.LOSS.MW**, and **CUSTOMERS.AFFECTED** were converted to `float` or `int` for numerical analysis.
 ---
 
+
 ### Univariate Analysis
 <iframe
   src="assets/univariate1.html"
@@ -74,12 +74,16 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
+Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+
 <iframe
   src="assets/univariate2.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
 
 ### Bivariate Analysis
 <iframe
@@ -89,12 +93,16 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
+Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+
 <iframe
   src="assets/bivariate3.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
 
 <iframe
   src="assets/bivariate2.html"
@@ -103,12 +111,17 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
+Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+
 <iframe
   src="assets/outage_map.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+
 
 ### Interesting Aggregates
 
@@ -134,6 +147,9 @@ Average Outage Duration by Year:
 |   2015 |           935.811 |
 |   2016 |          2225.55  |
 
+Explain Significance
+Describe which imputation technique you chose to use and why. If you didn’t fill in any missing values, discuss why not.
+
 Average Outage Duration by Day of the Week:
 | DAY       |   OUTAGE.DURATION |
 |:----------|------------------:|
@@ -145,9 +161,21 @@ Average Outage Duration by Day of the Week:
 | Saturday  |           2402.37 |
 | Sunday    |           2278.82 |
 
+Explain Significance
+Describe which imputation technique you chose to use and why. If you didn’t fill in any missing values, discuss why not.
+
+---
 ## Framing a Prediction Problem
 
+Clearly state your prediction problem and type (classification or regression). If you are building a classifier, make sure to state whether you are performing binary classification or multiclass classification. Report the response variable (i.e. the variable you are predicting) and why you chose it, the metric you are using to evaluate your model and why you chose it over other suitable metrics (e.g. accuracy vs. F1-score).
+
+Note: Make sure to justify what information you would know at the “time of prediction” and to only train your model using those features. For instance, if we wanted to predict your Final Exam grade, we couldn’t use your Portfolio Homework grade, because we (probably) won’t have the Portfolio Homework graded before the Final Exam! Feel free to ask questions if you’re not sure.
+
+
 ## Baseline Model
+
+Describe your model and state the features in your model, including how many are quantitative, ordinal, and nominal, and how you performed any necessary encodings. Report the performance of your model and whether or not you believe your current model is “good” and why.
+
 <iframe
   src="assets/simpleLinReg.html"
   width="800"
@@ -157,6 +185,7 @@ Average Outage Duration by Day of the Week:
 
 We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**  
 
+---
 ## Final Model
 Given the high error of the simple linear regression, we decided to experiment with other prediction techniques.  These techniques include multiple linear regression, lasso, ridge, and decision trees.  We will explore each model in this next section:
 
@@ -185,6 +214,23 @@ We explored non-linear relationships by fitting a Decision Tree Regressor. Hyper
   height="600"
   frameborder="0"
 ></iframe>
+
+
+### Chosen Model 
+
+State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
+
+Describe the modeling algorithm you chose, the hyperparameters that ended up performing the best, and the method you used to select hyperparameters and your overall model. Describe how your Final Model’s performance is an improvement over your Baseline Model’s performance.
+
+
+<iframe
+  src="assets/multLinReg.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
 
 
 
