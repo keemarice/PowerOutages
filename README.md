@@ -111,7 +111,7 @@ Lasso regression added L1 regularization to our linear model, helping reduce the
 Ridge regression used L2 regularization, penalizing large coefficients to prevent overfitting. Similar to Lasso, we tuned `alpha` using `GridSearchCV`.
 
 - **RMSE**: Slightly lower than Lasso, but still worse than the multiple linear regression: **4944.431**
-- **Most influential features**: Similar to Lasso, with some additional weight given to numeric features like `Year_Demand_Interaction`.
+- **Most influential features**: Similar to Lasso, with some additional weight given to features that didn't have weight before: `CAUSE_CATEGORY`
 
 ### Decision Trees
 We explored non-linear relationships by fitting a Decision Tree Regressor. Hyperparameters such as `max_depth`, `min_samples_split`, and `min_samples_leaf` were optimized using `GridSearchCV`.
