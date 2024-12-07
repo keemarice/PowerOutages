@@ -110,7 +110,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+*Demand Loss Scatterplot: This scatter plot shows the relationship between demand loss (MW) and the number of customers affected. The majority of outages involve low demand loss (less than 10,000 MW)*
 
 <iframe
   src="assets/bivariate2.html"
@@ -119,7 +119,7 @@ Plot Description: Include a 1-2 sentence explanation about your plot, making sur
   frameborder="0"
 ></iframe>
 
-Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+*NERC Regions Bar Chart: This chart shows the number of outages per North American Electric Reliabillity Coporation(NERC) region.  ECAR and FRCC have the most outages from 2000-2016.*
 
 <iframe
   src="assets/outage_map.html"
@@ -128,7 +128,7 @@ Plot Description: Include a 1-2 sentence explanation about your plot, making sur
   frameborder="0"
 ></iframe>
 
-Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+*Interactive Choropleth Map: This map shows the total minutes in outages per state by year.  This has an interactive feature that has a slider based on year.*
 
 
 ### Interesting Aggregates
