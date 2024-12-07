@@ -35,15 +35,16 @@ These questions could give insight into improvements to infrastructure resilienc
 
 ## Data Cleaning and Exploratory Data Analysis 
 
-In the beginning, we were given a .xlsx file that we coverted into a .csv file.  This made it easier to use the pd.read_csv() function to read and then clean our data.
+### Cleaning
+In the beginning, we were given a .xlsx file that we converted into a .csv file.  This made it easier to use the pd.read_csv() function to read and then clean our data.
 
-### 1. **Loading the Data**
+#### 1. **Loading the Data**
 - The dataset `outage.csv` was loaded using `pandas.read_csv()` with the following configurations:
   - **`usecols`**: Selected columns ranging from index 2 to 55 because these were the only relevant columns to us.
   - **`header`**: The header row was specified at index 0.
   - **`skiprows`**: Skipped the first 5 rows of the file to remove description of dataset.
 
-### 2. **Column Selection**
+#### 2. **Column Selection**
 - From the loaded dataset, we selected the following subset of columns that are relevant for the analysis:
   - **YEAR**: The year of the outage.
   - **U.S._STATE**: The state where the outage occurred.
@@ -54,25 +55,19 @@ In the beginning, we were given a .xlsx file that we coverted into a .csv file. 
   - **DEMAND.LOSS.MW**: The megawatts of electricity lost due to the outage.
   - **CUSTOMERS.AFFECTED**: The number of customers affected by the outage.
 
-### 3. **Removing Extra Rows**
+#### 3. **Removing Extra Rows**
 - The first row of the selected columns was removed because it contained metadata instead of actual data.
 
-### 4. **Handling Missing Values**
+#### 4. **Handling Missing Values**
 - Missing values in critical columns like **YEAR** and **OUTAGE.DURATION** were dropped to ensure regression models were able to be run.
 - For other columns, missing values were imputed using the mean of the dataset if a numeric column or maked as "missing" for categorical.
 
-### 5. **Data Type Conversion**
+#### 5. **Data Type Conversion**
 - Columns were converted to appropriate numeric data types using `pd.to_numeric()`:
 - **YEAR**, **OUTAGE.DURATION**, **DEMAND.LOSS.MW**, and **CUSTOMERS.AFFECTED** were converted to `float` or `int` for numerical analysis.
 ---
 
-<iframe
-  src="assets/outage_map.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
+### Univariate Analysis
 <iframe
   src="assets/univariate1.html"
   width="800"
@@ -80,6 +75,34 @@ In the beginning, we were given a .xlsx file that we coverted into a .csv file. 
   frameborder="0"
 ></iframe>
 
+<iframe
+  src="assets/univariate2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+### Bivariate Analysis
+<iframe
+  src="assets/bivariate1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/bivariate2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/outage_map.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
