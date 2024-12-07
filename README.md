@@ -55,15 +55,16 @@ These questions could give insight into improvements to infrastructure resilienc
 ## Framing a Prediction Problem
 
 ## Baseline Model
-
-## Final Model
-
 <iframe
   src="assets/simpleLinReg.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+## Final Model
+
+
 
 
 =======
