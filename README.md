@@ -5,7 +5,7 @@
 
 In this project, we examine a dataset of major power outages in the U.S. from January 2000 to July 2016 from publicly available datasets from the Department of Energy's (DOE) Office of Electricity Delivery and Energy Reliability, the U.S. Energy Information Administration (EIA), the National Oceanic and Atmospheric Administration (NOAA), the National Climatic Data Center (NCDC), the U.S. Department of Labor, Bureau of Labor Statistics, and the U.S. Census Bureau. This data coalesces information on major outage patterns and characteristics of the U.S. states, like climate and topographic characteristics, electricity consumption patterns, population, and land-cover characteristics. Through this information, it is possible to analyze patterns by state, climate type, and electricity demand. 
 
-The raw data set contains 1534 rows, where each records a different power outage and relevant information. Columns related to rhis examination are described below:
+The raw data set contains 1534 rows, where each records a different power outage and relevant information. Columns related to this examination are described below:
 
 | Column     |   Description |
 |:------------|--------:|
@@ -28,7 +28,7 @@ The raw data set contains 1534 rows, where each records a different power outage
 The data can be accessed here: https://engineering.purdue.edu/LASCI/research-data/outages 
 In this project, we focus on the following question:
 
-How long do power outages before power is restored? 
+**How long do power outages before power is restored?**
 
 These questions could give insight into improvements to infrastructure resilience in different states and electrical grids, and the improvement in technology or restoration time from 2000 to 2016. 
 
@@ -60,7 +60,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 
 #### 4. **Handling Missing Values**
 - Missing values in critical columns like **YEAR** and **OUTAGE.DURATION** were dropped to ensure regression models were able to be run.
-- For other columns, missing values were imputed using the mean of the dataset if a numeric column or maked as "missing" for categorical.
+- For other columns, missing values were imputed using the mean of the dataset if a numeric column or marked as "missing" for categorical.
 
 #### 5. **Data Type Conversion**
 - Columns were converted to appropriate numeric data types using `pd.to_numeric()`:
@@ -85,6 +85,13 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 ### Bivariate Analysis
 <iframe
   src="assets/bivariate1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/bivariate3.html"
   width="800"
   height="600"
   frameborder="0"
