@@ -175,14 +175,21 @@ Describe which imputation technique you chose to use and why. If you didn’t fi
 ---
 ## Framing a Prediction Problem
 
-Clearly state your prediction problem and type (classification or regression). If you are building a classifier, make sure to state whether you are performing binary classification or multiclass classification. Report the response variable (i.e. the variable you are predicting) and why you chose it, the metric you are using to evaluate your model and why you chose it over other suitable metrics (e.g. accuracy vs. F1-score).
+This prediction problem focuses on building a **regression model** to predict the **outage duration** of power outages in the USA, measured in minutes. The response variable, **OUTAGE.DURATION**, is crucial for utility companies as it reflects the severity and recovery time of an outage. 
 
-Note: Make sure to justify what information you would know at the “time of prediction” and to only train your model using those features. For instance, if we wanted to predict your Final Exam grade, we couldn’t use your Portfolio Homework grade, because we (probably) won’t have the Portfolio Homework graded before the Final Exam! Feel free to ask questions if you’re not sure.
+The prediction model uses features that are known at the **time of prediction**, ensuring its practicality in real-world scenarios. These features include:
+- **Cause of the outage**: Provides context for why the outage occurred (e.g., weather, equipment failure).
+- **Region**: Captures regional characteristics or historical patterns using the NERC region and U.S. state.
+- **Year**: Helps account for increasing critical weather events and improvements in outage management over time.
+- **Customers affected**: Reflects the scale of the outage, which can influence restoration efforts.
+- **Demand loss (MW)**: Indicates the severity of the disruption in terms of energy demand.
+
+The model is evaluated using the **Root Mean Squared Error (RMSE)** metric. RMSE is chosen because it penalizes large errors more heavily, making it ideal for this problem where large deviations in predictions could lead to inefficient resource allocation or extended downtime. We used RMSE over other metrics like MAE, as it emphasizes minimizing significant prediction errors.
+
+By leveraging this approach, the goal is to develop a robust regression model that minimizes prediction errors and provides actionable insights to utility companies. This ensures that the model not only predicts outage durations accurately but also adheres to the constraints of using information available at the time of prediction, enhancing its applicability in real-world operations.
 
 
 ## Baseline Model
-
-Describe your model and state the features in your model, including how many are quantitative, ordinal, and nominal, and how you performed any necessary encodings. Report the performance of your model and whether or not you believe your current model is “good” and why.
 
 <iframe
   src="assets/simpleLinReg.html"
@@ -191,7 +198,7 @@ Describe your model and state the features in your model, including how many are
   frameborder="0"
 ></iframe>
 
-We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**  
+We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**.  Given that this only takes into account one of the variables, we expected our other models to do better.  
 
 ---
 ## Final Model
