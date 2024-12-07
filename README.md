@@ -65,6 +65,15 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 - **YEAR**, **OUTAGE.DURATION**, **DEMAND.LOSS.MW**, and **CUSTOMERS.AFFECTED** were converted to `float` or `int` for numerical analysis.
 ---
 
+#### Cleaned Dataset
+
+|    |   YEAR | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |
+|---:|-------:|:-------------|:--------------|:--------------|:-------------------|------------------:|-----------------:|---------------------:|
+|  1 |   2011 | Minnesota    | MN            | MRO           | severe weather     |              3060 |              nan |                70000 |
+|  2 |   2014 | Minnesota    | MN            | MRO           | intentional attack |                 1 |              nan |                  nan |
+|  3 |   2010 | Minnesota    | MN            | MRO           | severe weather     |              3000 |              nan |                70000 |
+|  4 |   2012 | Minnesota    | MN            | MRO           | severe weather     |              2550 |              nan |                68200 |
+|  5 |   2015 | Minnesota    | MN            | MRO           | severe weather     |              1740 |              250 |               250000 |
 
 ### Univariate Analysis
 <iframe
