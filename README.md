@@ -83,7 +83,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+*Yearly Frequency Histogram: This plot shows the frequency of outages by year in the USA.  There seem to be more outages towards the later years in our dataset.*
 
 <iframe
   src="assets/univariate2.html"
@@ -92,7 +92,7 @@ Plot Description: Include a 1-2 sentence explanation about your plot, making sur
   frameborder="0"
 ></iframe>
 
-Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
+*Outage Duration Histogram: This plot shows the distribution of power outage durations.  Many of the power outages are pretty short.*
 
 ### Bivariate Analysis
 <iframe
@@ -102,8 +102,7 @@ Plot Description: Include a 1-2 sentence explanation about your plot, making sur
   frameborder="0"
 ></iframe>
 
-Plot Description: Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present, and how they answer your initial question.
-
+*Choropleth Map: Average Power outage duration by state.  The midwest has long power outages!*
 <iframe
   src="assets/bivariate3.html"
   width="800"
