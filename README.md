@@ -62,7 +62,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 
 #### 5. **Data Type Conversion**
 - Columns were converted to appropriate numeric data types using `pd.to_numeric()`:
-- `YEAR`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED`` were converted to `float` or `int` for numerical analysis.
+- `YEAR`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` were converted to float or int for numerical analysis.
 ---
 
 #### Cleaned Dataset
