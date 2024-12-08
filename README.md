@@ -231,9 +231,25 @@ We explored non-linear relationships by fitting a Decision Tree Regressor. Hyper
 ></iframe>
 
 
-### Chosen Model 
+## Chosen Model : Multiple Linear Regression 👑
 
-State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
+### Model Performance
+- **Baseline Model: Simple Linear Regression**:
+  - Used a simple linear regression with limited features.
+  - Higher RMSE due to insufficient feature representation.
+- **Final Model: Multiple Linear Regression**:
+  - Incorporating additional features and interaction terms led to a lower RMSE compared to other models like Lasso, Ridge, and Decision Trees.
+  - The improvement highlights the importance of capturing relevant information and relationships in the data.
+
+### Why Linear Regression Performed Best
+- The relationships between most predictors and the target variable were largely linear, aligning well with the assumptions of Linear Regression.
+- Regularization models like Lasso and Ridge may have over-penalized certain coefficients, while decision trees may have overfit smaller patterns, reducing their performance.
+- Linear Regression struck the right balance by explaining the variance in the data without unnecessary complexity.  It is difficult to predict outage duration, thus, a general model such as linear regression worked well.
+
+### Conclusion
+The Final Model improved performance over the Baseline by leveraging domain-relevant features, interaction terms, and a simple yet effective linear approach that aligned well with the data's underlying tendancies.
+
+omit later: State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
 
 Describe the modeling algorithm you chose, the hyperparameters that ended up performing the best, and the method you used to select hyperparameters and your overall model. Describe how your Final Model’s performance is an improvement over your Baseline Model’s performance.
 
