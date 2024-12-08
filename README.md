@@ -21,6 +21,7 @@ The raw data set contains 1534 rows, where each records a different power outage
 | 'OUTAGE.DURATION'	 |       Duration of outage events (in minutes) |
 | 'DEMAND.LOSS.MW	' |       Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
 | 'CUSTOMERS.AFFECTED'   |       Number of customers affected by the power outage event |
+
 The data can be accessed here: https://engineering.purdue.edu/LASCI/research-data/outages 
 
 In this project, we focus on the following question:
@@ -28,7 +29,7 @@ In this project, we focus on the following question:
 
 These questions could give insight into improvements to infrastructure resilience in different states and electrical grids, and the improvement in technology or restoration time from 2000 to 2016. 
 
----
+
 ## Data Cleaning and Exploratory Data Analysis 
 
 ### Cleaning
@@ -171,7 +172,7 @@ The above aggregate gives the average outage duration grouped by the day of the 
 
 It wasn't necessary to impute values because any missingness in **`DAY`** had to be dropped as it doesn't make sense to impute with other values of **`DAY`**, and **`OUTAGE.DURATION`** was aggregated using mean, which wouldn't change if missing values were filled with the mean. 
 
----
+
 ## Framing a Prediction Problem
 
 This prediction problem focuses on building a **regression model** to predict the **outage duration** of power outages in the USA, measured in minutes. The response variable, **OUTAGE.DURATION**, is crucial for utility companies as it reflects the severity and recovery time of an outage. 
@@ -187,7 +188,7 @@ The model is evaluated using the **Root Mean Squared Error (RMSE)** metric. RMSE
 
 By leveraging this approach, the goal is to develop a robust regression model that minimizes prediction errors and provides actionable insights to utility companies. This ensures that the model not only predicts outage durations accurately but also adheres to the constraints of using information available at the time of prediction, enhancing its applicability in real-world operations.
 
----
+
 ## Baseline Model
 
 <iframe
@@ -199,13 +200,14 @@ By leveraging this approach, the goal is to develop a robust regression model th
 
 We created a simple linear regression as our baseline model.  We selected our predictor variable to be **`CUSTOMERS.AFFECTED`** because it had the highest correlation with **`OUTAGE.DURATION`**.  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**.  Given that this only takes into account one of the variables, we expected our other models to do better.  
 
----
+
 ## Final Model
 Given the high error of the simple linear regression, we decided to experiment with other prediction techniques.  These techniques include multiple linear regression, lasso, ridge, and decision trees.  We will explore each model in this next section:
 
 ### Multiple Linear Regression
-A baseline approach using all selected features. And the error decreased drastically to **4933.43**  We will see later that this model performed the best.  Marginally better than ridge and lasso regression. 
-
+A baseline approach using all selected features: `YEAR`, `U.S_STATE`, `POSTAL.CODE`, `NERC.REGION`, `CAUSE.CATEGORY`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`. And the error decreased drastically to **4933.43**  We will see later that this model performed the best.  Marginally better than ridge and lasso regression. 
+- **Root Mean Squared Error (RMSE)**: **4933.43**
+- 
 ### Lasso Regression
 Lasso regression added L1 regularization to our linear model, helping reduce the impact of less significant features by driving their coefficients to zero. We used `GridSearchCV` to tune the regularization parameter (`alpha`), testing multiple values to find the best fit.
 
