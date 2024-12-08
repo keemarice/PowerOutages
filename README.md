@@ -61,7 +61,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 - For other columns, missing values were imputed using the mean of the dataset if a numeric column or marked as "missing" for categorical.
 
 #### 5. **Data Type Conversion**
-- Columns were converted to appropriate numeric data types using `pd.to_numeric()`: `YEAR`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` were converted to float or int for numerical analysis.
+- Columns were converted to appropriate numeric data types using **`pd.to_numeric()`**: **`YEAR`**, **`OUTAGE.DURATION`**, **`DEMAND.LOSS.MW`**, and **`CUSTOMERS.AFFECTED`** were converted to float or int for numerical analysis.
 
 ---
 
@@ -83,7 +83,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-*Yearly Frequency Histogram: This plot shows the frequency of outages by year in the USA.  There seem to be more outages towards the later years in our dataset.*
+*Yearly Frequency Histogram: This plot shows the frequency of outages by year in the USA.  There seem to be more outages in the later years in our dataset.*
 
 <iframe
   src="assets/univariate2.html"
@@ -119,7 +119,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-*NERC Regions Bar Chart: This chart shows the number of outages per North American Electric Reliabillity Coporation(NERC) region.  ECAR and FRCC have the most outages from 2000-2016.*
+*NERC Regions Bar Chart: This chart shows the number of outages per North American Electric Reliability Corporation (NERC) region. ECAR and FRCC have the most outages from 2000-2016.*
 
 <iframe
   src="assets/outage_map.html"
@@ -155,8 +155,9 @@ Average Outage Duration by Year:
 |   2015 |           935.811 |
 |   2016 |          2225.55  |
 
-Explain Significance
-Describe which imputation technique you chose to use and why. If you didn’t fill in any missing values, discuss why not.
+The above aggregate gives the average outage duration grouped by year. When thinking about the practical applications of this analysis it would be interesting to see if there was a decrease in average outage duration through the year, perhaps attributed to technological advances.
+
+It wasn't necessary to impute values because any missingness in **`YEAR`** had to be dropped as it doesn't make sense to impute with other values of **`YEAR`**, and **`OUTAGE.DURATION`** was aggregated using mean, which wouldn't change if missing values were filled with the mean. 
 
 Average Outage Duration by Day of the Week:
 
@@ -170,8 +171,9 @@ Average Outage Duration by Day of the Week:
 | Saturday  |           2402.37 |
 | Sunday    |           2278.82 |
 
-Explain Significance
-Describe which imputation technique you chose to use and why. If you didn’t fill in any missing values, discuss why not.
+The above aggregate gives the average outage duration grouped by the day of the week they started. When thinking about the practical applications of this analysis it would be interesting to see if there was a difference in outage duration depending on the outage starting on a business day or a weekend.
+
+It wasn't necessary to impute values because any missingness in **`DAY`** had to be dropped as it doesn't make sense to impute with other values of **`DAY`**, and **`OUTAGE.DURATION`** was aggregated using mean, which wouldn't change if missing values were filled with the mean. 
 
 ---
 ## Framing a Prediction Problem
@@ -224,15 +226,8 @@ Ridge regression used L2 regularization, penalizing large coefficients to preven
 We explored non-linear relationships by fitting a Decision Tree Regressor. Hyperparameters such as `max_depth`, `min_samples_split`, and `min_samples_leaf` were optimized using `GridSearchCV`.
 - **RMSE**: The highest of all of the advanced models being: **6913.61**
 
-<iframe
-  src="assets/decision_tree.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
 
-
-## Chosen Model : Multiple Linear Regression 👑
+## Chosen Final Model: Multiple Linear Regression 👑
 
 ### Model Performance
 - **Baseline Model: Simple Linear Regression**:
@@ -248,9 +243,7 @@ We explored non-linear relationships by fitting a Decision Tree Regressor. Hyper
 - Linear Regression struck the right balance by explaining the variance in the data without unnecessary complexity.  It is difficult to predict outage duration, thus, a general model such as linear regression worked well.
 
 ### Conclusion
-The Final Model improved performance over the Baseline by leveraging domain-relevant features, interaction terms, and a simple yet effective linear approach that aligned well with the data's underlying tendancies.  For future work, it would be interesting ti see how this model would perform on a dataset with more datapoints for longer outages.  In that case, ridge regression (with a slightly higher RMSE for this dataset) might perform better.
-
-
+The Final Model improved performance over the Baseline by leveraging domain-relevant features, interaction terms, and a simple yet effective linear approach that aligned well with the data's underlying tendencies.  For future work, it would be interesting to see how this model would perform on a dataset with more data points for longer outages.  In that case, ridge regression (with a slightly higher RMSE for this dataset) might perform better.
 
 <iframe
   src="assets/multLinReg.html"
