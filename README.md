@@ -247,7 +247,7 @@ We explored non-linear relationships by fitting a Decision Tree Regressor. Hyper
 - Linear Regression struck the right balance by explaining the variance in the data without unnecessary complexity.  It is difficult to predict outage duration, thus, a general model such as linear regression worked well.
 
 ### Conclusion
-The Final Model improved performance over the Baseline by leveraging domain-relevant features, interaction terms, and a simple yet effective linear approach that aligned well with the data's underlying tendancies.
+The Final Model improved performance over the Baseline by leveraging domain-relevant features, interaction terms, and a simple yet effective linear approach that aligned well with the data's underlying tendancies.  For future work, it would be interesting ti see how this model would perform on a dataset with more datapoints for longer outages.  In that case, ridge regression (with a slightly higher RMSE for this dataset) might perform better.
 
 omit later: State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
 
