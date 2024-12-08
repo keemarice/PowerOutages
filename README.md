@@ -34,7 +34,7 @@ These questions could give insight into improvements to infrastructure resilienc
 ## Data Cleaning and Exploratory Data Analysis 
 
 ### Cleaning
-In the beginning, we were given a .xlsx file that we converted into a .csv file.  This made it easier to use the pd.read_csv() function to read and then clean our data.
+Given a .xlsx file, we converted the data into a .csv file to make data manipulation and conversion to a pandas dataframe easier. 
 
 #### 1. **Loading the Data**
 - The dataset `outage.csv` was loaded using `pandas.read_csv()` with the following configurations:
@@ -83,7 +83,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-*Yearly Frequency Histogram: This plot shows the frequency of outages by year in the USA.  There seem to be more outages in the later years in our dataset.*
+*Yearly Frequency Histogram: This plot shows the frequency of outages by year in the USA. The plot shows a higher distribution of power outages in later years, making the distribution skewed left.*
 
 <iframe
   src="assets/univariate2.html"
@@ -92,7 +92,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-*Outage Duration Histogram: This plot shows the distribution of power outage durations.  Many of the power outages are pretty short.*
+*Outage Duration Histogram: This plot shows the distribution of power outage durations. The plot shows that an extreme majority of power outages had a duration below 2000 minutes*
 
 ### Bivariate Analysis
 <iframe
@@ -102,7 +102,8 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-*Choropleth Map: Average Power outage duration by state.  The midwest has long power outages!*
+*Choropleth Map: This plot shows the average power outage duration by State. The Midwestern and North Eastern states have a higher average outage duration.*
+
 <iframe
   src="assets/bivariate3.html"
   width="800"
@@ -119,7 +120,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
   frameborder="0"
 ></iframe>
 
-*NERC Regions Bar Chart: This chart shows the number of outages per North American Electric Reliability Corporation (NERC) region. ECAR and FRCC have the most outages from 2000-2016.*
+*NERC Regions Bar Chart: This chart shows the average number of outages per North American Electric Reliability Corporation (NERC) region. ECAR and FRCC have the most outages from 2000-2016.*
 
 <iframe
   src="assets/outage_map.html"
@@ -133,7 +134,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 
 ### Interesting Aggregates
 
-Average Outage Duration by Year: 
+##### Average Outage Duration by Year: 
 
 |   YEAR |   OUTAGE.DURATION |
 |-------:|------------------:|
@@ -159,7 +160,7 @@ The above aggregate gives the average outage duration grouped by year. When thin
 
 It wasn't necessary to impute values because any missingness in **`YEAR`** had to be dropped as it doesn't make sense to impute with other values of **`YEAR`**, and **`OUTAGE.DURATION`** was aggregated using mean, which wouldn't change if missing values were filled with the mean. 
 
-Average Outage Duration by Day of the Week:
+#### Average Outage Duration by Day of the Week:
 
 | DAY       |   OUTAGE.DURATION |
 |:----------|------------------:|
@@ -201,7 +202,7 @@ By leveraging this approach, the goal is to develop a robust regression model th
   frameborder="0"
 ></iframe>
 
-We created a simple linear regression as our baseline model.  We selected our predictor variable to be "CUSTOMERS.AFFECTED" because it had the highest correlation with "OUTAGE.DURATION".  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**.  Given that this only takes into account one of the variables, we expected our other models to do better.  
+We created a simple linear regression as our baseline model.  We selected our predictor variable to be **`CUSTOMERS.AFFECTED`** because it had the highest correlation with **`OUTAGE.DURATION`**.  We fit a simple linear regression with an 80/20 train/test split.  This model, given its simplicity, didn't perform well on our test set.  It had a RMSE of **8350.87**.  Given that this only takes into account one of the variables, we expected our other models to do better.  
 
 ---
 ## Final Model
@@ -252,10 +253,6 @@ The Final Model improved performance over the Baseline by leveraging domain-rele
   frameborder="0"
 ></iframe>
 
-
-
-
-
-
+*This plot compares the Actual Outage Duration and the Predicted Outage Duration. The prediction line has a strong positive slope, but as the outage duration exceeded 5000 minutes, actual values are less than their predicted value*
 
 =======
