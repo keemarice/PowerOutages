@@ -8,19 +8,19 @@ The raw data set contains 1534 rows, where each records a different power outage
 
 | Column     |   Description |
 |:------------|--------:|
-| 'YEAR'   |       Indicates the year when the outage event occurred |
-| 'MONTH' |       Indicates the month when the outage event occurred |
-| 'U.S._STATE'	 |       Represents all the states in the continental U.S. |
-| 'POSTAL.CODE' |       Represents the postal code of the U.S. states |
-| 'NERC.REGION'   |      The North American Electric Reliability Corporation (NERC) regions involved in the outage event |
-| 'OUTAGE.START.DATE'   |       This variable indicates the day of the year when the outage event started (as reported by the corresponding Utility in the region) |
-| 'OUTAGE.START.TIME' |       This variable indicates the time of the day when the outage event started (as reported by the corresponding Utility in the region) |
-| 'OUTAGE.RESTORATION.DATE'	 |       This variable indicates the day of the year when power was restored to all the customers (as reported by the corresponding Utility in the region) |
-| 'OUTAGE.RESTORATION.TIME'   |       This variable indicates the time of the day when power was restored to all the customers (as reported by the corresponding Utility in the region) |
-| 'CAUSE.CATEGORY' |       Categories of all the events causing the major power outages |
-| 'OUTAGE.DURATION'	 |       Duration of outage events (in minutes) |
-| 'DEMAND.LOSS.MW	' |       Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
-| 'CUSTOMERS.AFFECTED'   |       Number of customers affected by the power outage event |
+| `YEAR`   |       Indicates the year when the outage event occurred |
+| `MONTH` |       Indicates the month when the outage event occurred |
+| `U.S._STATE`	 |       Represents all the states in the continental U.S. |
+| `POSTAL.CODE` |       Represents the postal code of the U.S. states |
+| `NERC.REGION`   |      The North American Electric Reliability Corporation (NERC) regions involved in the outage event |
+| `OUTAGE.START.DATE`   |       This variable indicates the day of the year when the outage event started (as reported by the corresponding Utility in the region) |
+| `OUTAGE.START.TIME` |       This variable indicates the time of the day when the outage event started (as reported by the corresponding Utility in the region) |
+| `OUTAGE.RESTORATION.DATE`	 |       This variable indicates the day of the year when power was restored to all the customers (as reported by the corresponding Utility in the region) |
+| `OUTAGE.RESTORATION.TIME`   |       This variable indicates the time of the day when power was restored to all the customers (as reported by the corresponding Utility in the region) |
+| `CAUSE.CATEGORY` |       Categories of all the events causing the major power outages |
+| `OUTAGE.DURATION`	 |       Duration of outage events (in minutes) |
+| `DEMAND.LOSS.MW` |       Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
+| `CUSTOMERS.AFFECTED`   |       Number of customers affected by the power outage event |
 
 The data can be accessed here: https://engineering.purdue.edu/LASCI/research-data/outages 
 
@@ -251,5 +251,3 @@ The Final Model improved performance over the Baseline by leveraging domain-rele
 ></iframe>
 
 *This plot compares the Actual Outage Duration and the Predicted Outage Duration. The prediction line has a strong positive slope, but as the outage duration exceeded 5000 minutes, actual values are less than their predicted value*
-
-=======
