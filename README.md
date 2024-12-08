@@ -62,6 +62,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 
 #### 5. **Data Type Conversion**
 - Columns were converted to appropriate numeric data types using `pd.to_numeric()`: `YEAR`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` were converted to float or int for numerical analysis.
+
 ---
 
 #### Cleaned Dataset
@@ -158,6 +159,7 @@ Explain Significance
 Describe which imputation technique you chose to use and why. If you didn’t fill in any missing values, discuss why not.
 
 Average Outage Duration by Day of the Week:
+
 | DAY       |   OUTAGE.DURATION |
 |:----------|------------------:|
 | Monday    |           2117.49 |
