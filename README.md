@@ -21,11 +21,9 @@ The raw data set contains 1534 rows, where each records a different power outage
 | 'OUTAGE.DURATION'	 |       Duration of outage events (in minutes) |
 | 'DEMAND.LOSS.MW	' |       Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
 | 'CUSTOMERS.AFFECTED'   |       Number of customers affected by the power outage event |
-
 The data can be accessed here: https://engineering.purdue.edu/LASCI/research-data/outages 
 
 In this project, we focus on the following question:
-
 **How long do power outages last before power is restored?**
 
 These questions could give insight into improvements to infrastructure resilience in different states and electrical grids, and the improvement in technology or restoration time from 2000 to 2016. 
@@ -36,13 +34,13 @@ These questions could give insight into improvements to infrastructure resilienc
 ### Cleaning
 Given a .xlsx file, we converted the data into a .csv file to make data manipulation and conversion to a pandas dataframe easier. 
 
-#### 1. **Loading the Data**
+#### Loading the Data
 - The dataset `outage.csv` was loaded using `pandas.read_csv()` with the following configurations:
   - **`usecols`**: Selected columns ranging from index 2 to 55 because these were the only relevant columns to us.
   - **`header`**: The header row was specified at index 0.
   - **`skiprows`**: Skipped the first 5 rows of the file to remove description of dataset.
 
-#### 2. **Column Selection**
+#### Column Selection
 - From the loaded dataset, we selected the following subset of columns that are relevant for the analysis:
   - **YEAR**: The year of the outage.
   - **U.S._STATE**: The state where the outage occurred.
@@ -53,17 +51,15 @@ Given a .xlsx file, we converted the data into a .csv file to make data manipula
   - **DEMAND.LOSS.MW**: The megawatts of electricity lost due to the outage.
   - **CUSTOMERS.AFFECTED**: The number of customers affected by the outage.
 
-#### 3. **Removing Extra Rows**
+#### Removing Extra Rows
 - The first row of the selected columns was removed because it contained metadata instead of actual data.
 
-#### 4. **Handling Missing Values**
+#### Handling Missing Values
 - Missing values in critical columns like **YEAR** and **OUTAGE.DURATION** were dropped to ensure regression models were able to be run.
 - For other columns, missing values were imputed using the mean of the dataset if a numeric column or marked as "missing" for categorical.
 
-#### 5. **Data Type Conversion**
+#### Data Type Conversion
 - Columns were converted to appropriate numeric data types using **`pd.to_numeric()`**: **`YEAR`**, **`OUTAGE.DURATION`**, **`DEMAND.LOSS.MW`**, and **`CUSTOMERS.AFFECTED`** were converted to float or int for numerical analysis.
-
----
 
 #### Cleaned Dataset
 
@@ -131,7 +127,6 @@ Given a .xlsx file, we converted the data into a .csv file to make data manipula
 
 *Interactive Choropleth Map: This map shows the total minutes in outages per state by year.  This has an interactive feature that has a slider based on year.*
 
-
 ### Interesting Aggregates
 
 ##### Average Outage Duration by Year: 
@@ -192,7 +187,7 @@ The model is evaluated using the **Root Mean Squared Error (RMSE)** metric. RMSE
 
 By leveraging this approach, the goal is to develop a robust regression model that minimizes prediction errors and provides actionable insights to utility companies. This ensures that the model not only predicts outage durations accurately but also adheres to the constraints of using information available at the time of prediction, enhancing its applicability in real-world operations.
 
-
+---
 ## Baseline Model
 
 <iframe
