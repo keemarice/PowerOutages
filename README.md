@@ -204,7 +204,7 @@ We created a simple linear regression as our baseline model.  We selected our pr
 Given the high error of the simple linear regression, we decided to experiment with other prediction techniques.  These techniques include multiple linear regression, lasso, ridge, and decision trees.  We will explore each model in this next section:
 
 ### Multiple Linear Regression
-A baseline approach using all selected features. And the error decreased drastically to **4933.434**  We will see later that this model performed the best.  Marginally better than ridge and lasso regression. 
+A baseline approach using all selected features. And the error decreased drastically to **4933.43**  We will see later that this model performed the best.  Marginally better than ridge and lasso regression. 
 
 ### Lasso Regression
 Lasso regression added L1 regularization to our linear model, helping reduce the impact of less significant features by driving their coefficients to zero. We used `GridSearchCV` to tune the regularization parameter (`alpha`), testing multiple values to find the best fit.
@@ -215,12 +215,12 @@ Lasso regression added L1 regularization to our linear model, helping reduce the
 ### Ridge Regression
 Ridge regression used L2 regularization, penalizing large coefficients to prevent overfitting. Similar to Lasso, we tuned `alpha` using `GridSearchCV`.
 
-- **RMSE**: Slightly lower than Lasso, but still worse than the multiple linear regression: **4944.431**
+- **RMSE**: Slightly lower than Lasso, but still worse than the multiple linear regression: **4948.611**
 - **Most influential features**: Similar to Lasso, with some additional weight given to features that didn't have weight before: `CAUSE_CATEGORY`
 
 ### Decision Trees
 We explored non-linear relationships by fitting a Decision Tree Regressor. Hyperparameters such as `max_depth`, `min_samples_split`, and `min_samples_leaf` were optimized using `GridSearchCV`.
-- **RMSE**: The highest of all of the advanced models being: **5480.099**
+- **RMSE**: The highest of all of the advanced models being: **6913.61**
 
 <iframe
   src="assets/decision_tree.html"
@@ -248,9 +248,6 @@ We explored non-linear relationships by fitting a Decision Tree Regressor. Hyper
 ### Conclusion
 The Final Model improved performance over the Baseline by leveraging domain-relevant features, interaction terms, and a simple yet effective linear approach that aligned well with the data's underlying tendancies.  For future work, it would be interesting ti see how this model would perform on a dataset with more datapoints for longer outages.  In that case, ridge regression (with a slightly higher RMSE for this dataset) might perform better.
 
-omit later: State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
-
-Describe the modeling algorithm you chose, the hyperparameters that ended up performing the best, and the method you used to select hyperparameters and your overall model. Describe how your Final Model’s performance is an improvement over your Baseline Model’s performance.
 
 
 <iframe
