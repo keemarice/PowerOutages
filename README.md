@@ -61,8 +61,7 @@ In the beginning, we were given a .xlsx file that we converted into a .csv file.
 - For other columns, missing values were imputed using the mean of the dataset if a numeric column or marked as "missing" for categorical.
 
 #### 5. **Data Type Conversion**
-- Columns were converted to appropriate numeric data types using `pd.to_numeric()`:
-- `YEAR`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` were converted to float or int for numerical analysis.
+- Columns were converted to appropriate numeric data types using `pd.to_numeric()`: `YEAR`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, and `CUSTOMERS.AFFECTED` were converted to float or int for numerical analysis.
 ---
 
 #### Cleaned Dataset
