@@ -26,7 +26,7 @@ The data can be accessed here: https://engineering.purdue.edu/LASCI/research-dat
 
 In this project, we focus on the following question:
 
-**How long do power outages before power is restored?**
+**How long do power outages last before power is restored?**
 
 These questions could give insight into improvements to infrastructure resilience in different states and electrical grids, and the improvement in technology or restoration time from 2000 to 2016. 
 
